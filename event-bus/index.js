@@ -7,6 +7,9 @@ app.use(bodyParser.json());
 
 app.post("/events", (req, res) => {
   const event = req.body;
+
+  // the data received is an event and it's the same dispatched to the other services
+
   axios.post("http://localhost:4000/events", event);
   axios.post("http://localhost:4001/events", event);
   axios.post("http://localhost:4002/events", event);
