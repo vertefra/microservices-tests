@@ -29,15 +29,16 @@ app.post("/posts", async (req, res) => {
       title,
     },
   });
-
-  app.post("/events", (req, res) => {
-    console.log("received Event", req.body.type);
-    res.send({});
-  });
-
   res.status(201).send(posts[id]);
 });
 
+// listening for events from event bus
+
+app.post("/events", (req, res) => {
+  console.log("received Event", req.body.type);
+  res.send({});
+});
+
 app.listen(4000, () => {
-  console.log("listening on 4000");
+  console.log("Posts service, listening on 4000");
 });

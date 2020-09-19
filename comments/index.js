@@ -32,11 +32,13 @@ app.post("/posts/:id/comments", (req, res) => {
   res.status(201).send(comments);
 });
 
+// listening for events from event-bus
+
 app.post("/events", (req, res) => {
   console.log("received Event", req.body.type);
   res.send({});
 });
 
 app.listen(4001, () => {
-  console.log("listening on 4001");
+  console.log("Comments service, listening on 4001");
 });
